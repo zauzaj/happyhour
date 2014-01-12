@@ -4,7 +4,7 @@ one:
   first_name: MyString
   last_name: MyString
   phone_number: MyString
-  email_adress: MyString
+  email: MyString
   user_name: MyString
   password: MyString
 
@@ -12,6 +12,6 @@ two:
   first_name: MyString
   last_name: MyString
   phone_number: MyString
-  email_adress: MyString
+  email: MyString
   user_name: MyString
   password: MyString

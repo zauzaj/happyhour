@@ -8,4 +8,5 @@ class Advert < ActiveRecord::Base
 
 	PAYMENT = ["CASH", "CARD"]
 
+
 end

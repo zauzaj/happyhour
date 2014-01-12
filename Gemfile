@@ -36,8 +36,17 @@ group :test, :development	do
   gem 'rspec-rails'
   gem 'better_errors'
   gem 'shoulda-matchers'
+  gem 'devise'
 end
 
+gem "haml"
+gem "html2haml"
+
+group :development do 
+gem 'simple_form'
+end
+
+gem 'erd'
 gem 'execjs'
 #gem 'therubyracer'
 # Use ActiveModel has_secure_password
