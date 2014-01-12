@@ -32,10 +32,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :test, :development	do
-  gem 'rspec-rails'
+group :test do 
   gem 'better_errors'
   gem 'shoulda-matchers'
+end
+
+group :test, :development	do
+  gem 'rspec-rails'
   gem 'devise'
 end
 
