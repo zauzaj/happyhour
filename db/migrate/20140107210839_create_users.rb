@@ -7,7 +7,8 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :first_name
       t.string :last_name
-      t.string :phone_number
+      t.string :mobile_number_1
+      t.string :mobile_number_2 
       t.string :user_name
       t.string :password
 

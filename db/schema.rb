@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108163742) do
+ActiveRecord::Schema.define(version: 20140116200431) do
 
   create_table "adverts", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "payment_method"
     t.boolean  "is_commentable"
+    t.string   "address"
+    t.string   "location"
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -33,12 +36,18 @@ ActiveRecord::Schema.define(version: 20140108163742) do
     t.datetime "updated_at"
   end
 
+  create_table "images", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "phone_number"
+    t.string   "mobile_number_1"
+    t.string   "mobile_number_2"
     t.string   "user_name"
     t.string   "password"
     t.string   "reset_password_token"
