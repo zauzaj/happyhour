@@ -1,5 +1,14 @@
 HappyHour::Application.routes.draw do
+  
   devise_for :users
+
+  get "dashboards/index", to: "dashboards#index", as: "dashboard"
+  
+
+
+  root 'home#index', to:'home#index'
+
+  #get 'dashboard/', to: 'dashboard/index', as: 'dashboard'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

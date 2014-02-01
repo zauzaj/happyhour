@@ -8,7 +8,7 @@ development:
   encoding: utf8
   database: happy_development
   username: root
-  password: Jordan90!
+  password: admin
   host: 127.0.0.1
   port: 3306
 
@@ -20,7 +20,7 @@ test:
   encoding: utf8
   database: happy_test
   username: root
-  password: Jordan90!
+  password: admin
   host: 127.0.0.1
   port: 3306
 
@@ -29,6 +29,6 @@ production:
   encoding: utf8
   database: happy_production
   username: root
-  password: Jordan90!
+  password: admin
   host: 127.0.0.1
   port: 3306

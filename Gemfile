@@ -9,6 +9,10 @@ gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -39,13 +43,19 @@ end
 
 group :test, :development	do
   gem 'rspec-rails'
-  gem 'better_errors'
   gem 'devise'
   gem "haml"
 	gem "html2haml"
 	gem 'simple_form'
   gem 'carrierwave'
 end
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
+
 
 gem 'erd'
 gem 'execjs'
