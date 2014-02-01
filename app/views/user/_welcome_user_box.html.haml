@@ -1,0 +1,15 @@
+.nav-collapse.collapse
+  %ul.nav
+    %li.dropdown
+      %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"} 
+        Welcome,
+        = current_user.user_name
+        %b.caret
+      %ul.dropdown-menu{"role" => "menu"}
+        %li
+          %a{:href => dashboard_path} 
+            My dashboard
+          %a{:href => "#link2"} 
+            My profile
+          %a{:href => destroy_user_session_path, :method => :delete } 
+            Sign out
