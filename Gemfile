@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+gem "haml"
+gem "html2haml"
+gem 'simple_form'
+gem 'carrierwave'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -31,23 +37,16 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
 
 group :test do 
-  gem 'capybara', '2.1.0'
+  gem 'capybara'
   gem 'factory_girl_rails', '4.2.0'
 end
 
-group :test, :development	do
-  gem 'rspec-rails'
-  gem 'devise'
-  gem "haml"
-	gem "html2haml"
-	gem 'simple_form'
-  gem 'carrierwave'
+group :test, :development do
+  gem 'rspec-rails', '3.0.0.beta1'
+	gem 'pry-rails'
+	gem 'launchy'
 end
 
 group :development do
