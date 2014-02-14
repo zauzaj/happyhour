@@ -19,7 +19,8 @@ feature "User - Sign in" do
 		fill_in "user_password", with: "password"
 		click_button "Sign in"
 		expect(current_path).to eq dashboard_path
-		expect(page).to have_content "Signed in successfully. "
+		puts current_path
+		expect(page).to have_content "Signed in successfully."
 	end
 
 end

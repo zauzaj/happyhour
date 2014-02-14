@@ -1,17 +1,13 @@
-= render 'user/welcome_user_box'
 %h3
 	= link_to "Back to home", root_path
 %h3
 	This is your dashboard
 %h3
-	My profile :
-%div#user-profile-box
-	= render 'user_profile_dashboard'
-%div#user-details-box
+%div#dashboard-tabs
 	%ul#user-box-tabs
-		%li#edit-user-profile
+		%li#user-profile-box
+			= link_to "My Profile"
+		%li#user-profile
 			= link_to "Add new advert"
-		%li#activities
-			= link_to "My Activities"
-	
-
+		%li#all-adverts
+			= link_to "My addverts"
