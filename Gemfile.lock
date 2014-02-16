@@ -229,6 +229,7 @@ DEPENDENCIES
   mysql2
   pry-rails
   rails (= 4.0.0)
+  rspec-collection_matchers
   rspec-rails (= 3.0.0.beta1)
   sass-rails (~> 4.0.0)
   simple_form

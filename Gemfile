@@ -45,6 +45,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails', '3.0.0.beta1'
+  gem 'rspec-collection_matchers'
 	gem 'pry-rails'
 	gem 'launchy'
 end

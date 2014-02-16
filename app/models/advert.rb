@@ -5,7 +5,10 @@ class Advert < ActiveRecord::Base
 
 	validates :title, presence: true
 	validates :description, presence: true
+	validates :location, presence: true
+	validates :address, presence: true
 
+	
 	PAYMENT = ["CASH", "CARD"]
 
 
