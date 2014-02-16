@@ -19,14 +19,21 @@ describe "Advert" do
 		expect(advert).to have(1).errors_on(:description)  	
 	end  
 
-	it "without description" do
+	it "invalid length" do
+		advert.description = "a" * 201
+		binding.pry
+		expect(advert).to have(1).errors_on(:description)
+	end
+
+	it "without address" do
 		advert.address = nil
 		expect(advert).to have(1).errors_on(:address)  	
 	end
 
-	it "without description" do
+	it "without location" do
 		advert.location = nil
 		expect(advert).to have(1).errors_on(:location)  	
 	end
+
 
 end
