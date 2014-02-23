@@ -16,12 +16,11 @@ describe "Advert" do
 
 	it "without description" do
 		advert.description = nil
-		expect(advert).to have(1).errors_on(:description)  	
+		expect(advert).to have(2).errors_on(:description)  	
 	end  
 
 	it "invalid length" do
 		advert.description = "a" * 201
-		binding.pry
 		expect(advert).to have(1).errors_on(:description)
 	end
 

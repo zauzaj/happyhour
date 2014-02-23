@@ -8,6 +8,7 @@ feature "User - Sign in" do
 	end
 	
 	scenario "invalid login user" do
+		save_and_open_page
 		fill_in "user_email", with: @user.email
 		fill_in "user_password", with: "password1"
 		click_button "Sign in"
