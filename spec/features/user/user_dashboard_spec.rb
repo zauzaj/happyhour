@@ -19,7 +19,7 @@ feature "User Dashboard" do
 		click_link "Back to home"
 		expect(current_path).to eq root_path
 	end
-
+	
 	# scenario "dashboard need to have user's details" do
 	# 	binding.pry
 	# 	expect(page).to have_content("#{user.first_name}")
