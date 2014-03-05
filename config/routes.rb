@@ -6,9 +6,9 @@ HappyHour::Application.routes.draw do
 
   get "dashboards/index", to: "dashboards#index", as: "dashboard"
   
+  resources :adverts
 
-
-  root 'home#index', to:'home#index'
+  root 'adverts#index', to:'advert#index'
 
   #get 'dashboard/', to: 'dashboard/index', as: 'dashboard'
   # The priority is based upon order of creation: first created -> highest priority.
