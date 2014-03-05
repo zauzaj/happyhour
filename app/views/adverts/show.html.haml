@@ -1,4 +1,19 @@
-%p#notice= notice
-= link_to 'Edit', edit_advert_path(@advert)
-|
-\#{link_to 'Back', adverts_path}
+.container
+	.jumbotron
+		%center
+			%h1
+				= @advert.title
+			%h3
+				= @advert.description
+			/ TODO MAIN IMAGE
+			/  GALERY
+.panel-side.pull-left
+	%h5
+		Kontakt:
+		= @advert.phone_number
+	%h5
+		Lokacija:
+		= @advert.location
+	%h5
+		Adresa:
+		= @advert.address
