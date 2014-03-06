@@ -9,10 +9,7 @@
     .collapse.navbar-collapse.navHeaderCollapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          - if user_signed_in?
-            = render 'user/welcome_user_box'
-          -else
-            = render 'shared/new_session'
+          = user_signed_in? ? (render "user/welcome_user_box") : (render "shared/new_session")
 
 
 

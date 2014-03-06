@@ -11,7 +11,7 @@
     .panel.panel-default
       .panel-body
         This is where search criteria goes
-  .container
+  .container#adverts
     - @adverts.each do |advert|
       .col-lg-4
         .panel.panel-default
@@ -34,4 +34,4 @@
                 Adresa:
                 = advert.address
               %h6
-                = link_to "Pogledaj detaljnije..", advert
+                = link_to "Pogledaj detaljnije..", advert, id: "detaljnije-#{advert.id}"
