@@ -23,20 +23,29 @@ describe AdvertsController do
   # This should return the minimal set of attributes required to create a valid
   # Advert. As you add validations to Advert, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { attributes_for(:advert) }
+  let(:valid_attributes) { attributes_for(:active_advert) }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # AdvertsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  # let(:valid_session) { {} }
 
   describe "GET index" do
-    it "assigns all adverts as @adverts" do
-      advert = Advert.create! valid_attributes
+    it "assigns active adverts as @adverts" do
+      active_advert = FactoryGirl.create :active_advert
+      inactive_advert = FactoryGirl.create :inactive_advert
       
-      get :index, {}, valid_session
+      get :index
+
+      expect(assigns(:adverts)).to eq([active_advert])
+    end
+
+    it "truc trac" do
+      active_advert = FactoryGirl.create :active_advert
       
-      expect(assigns(:adverts)).to eq([advert])
+      expect(Advert).to receive :active
+      
+      get :index
     end
   end
 
@@ -50,8 +59,9 @@ describe AdvertsController do
 
   describe "GET new" do
     it "assigns a new advert as @advert" do
+      expect(Advert).to receive(:bla_truc)
       get :new, {}, valid_session
-      expect(assigns(:advert)).to be_a_new(Advert)
+      # expect(assigns(:advert)).to be_a_new(Advert)
     end
   end
 
@@ -160,3 +170,4 @@ describe AdvertsController do
   end
 
 end
+
