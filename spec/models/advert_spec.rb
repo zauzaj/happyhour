@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe "Advert" do
-	let(:advert) do
-		create(:advert)
+	let!(:active_advert) do
+		create(:active_advert)
 	end
 
 	it "valid advert" do
@@ -34,5 +34,11 @@ describe "Advert" do
 		expect(advert).to have(1).errors_on(:location)  	
 	end
 
+	context '.active' do
+		it 'returns only active adverts' do
+			create(:inactive_advert)
 
+			expect(Advert.active.count).to eq 1
+		end
+	end
 end

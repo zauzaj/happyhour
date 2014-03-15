@@ -12,5 +12,9 @@ class Advert < ActiveRecord::Base
 	
 	PAYMENT = ["CASH", "CARD"]
 
-
+  class << self
+    def active 
+      where(status: "active")
+    end
+  end
 end
