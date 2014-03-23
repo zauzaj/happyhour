@@ -1,0 +1,5 @@
+.new-comment-form
+	= simple_form_for @comment do |f|
+		= f.input_field :owner
+		= f.text_field :content
+		= f.button "Post Comment"

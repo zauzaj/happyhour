@@ -10,6 +10,7 @@ class AdvertsController < ApplicationController
   # GET /adverts/1
   # GET /adverts/1.json
   def show
+    @comments = @advert.comments if @advert.commentable
   end
 
   # GET /adverts/new

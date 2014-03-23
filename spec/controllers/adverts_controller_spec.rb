@@ -24,7 +24,7 @@ describe AdvertsController do
   # Advert. As you add validations to Advert, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) { attributes_for(:active_advert) }
-
+  # let(:comment) {attributes_for(:comment)}
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # AdvertsController. Be sure to keep this updated too.
@@ -34,9 +34,8 @@ describe AdvertsController do
     it "assigns active adverts as @adverts" do
       active_advert = FactoryGirl.create :active_advert
       inactive_advert = FactoryGirl.create :inactive_advert
-      
       get :index
-
+      binding.pry
       expect(assigns(:adverts)).to eq([active_advert])
     end
 
@@ -51,9 +50,10 @@ describe AdvertsController do
 
   describe "GET show" do
     it "assigns the requested advert as @advert" do
-      advert = Advert.create! valid_attributes
-      get :show, {:id => advert.to_param}, valid_session
-      expect(assigns(:advert)).to eq(advert)
+      active_advert = FactoryGirl.create :active_advert
+      get :show, {:id => active_advert.to_param}
+      expect(assigns(:advert)).to eq(active_advert)
+      expect(assigns(:comments)).to eq([active_advert.comments])
     end
   end
 

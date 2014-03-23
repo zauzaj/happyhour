@@ -7,8 +7,15 @@ FactoryGirl.define do
 		location "Zemun"
 		phone_number "11111111"
 		status "active"
+		commentable true
 		user
 		category 
+		ignore do 
+			comments_count 5
+		end
+		after(:create) do |active_advert, evaluator|
+			create_list(:comment, evaluator.comments_count, advert: active_advert)
+		end
 	end  
 	
 	factory :inactive_advert, parent: :active_advert do

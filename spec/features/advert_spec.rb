@@ -2,8 +2,7 @@ require 'spec_helper'
 
 feature Advert do
 	let(:user) { create :user}
-	let!(:advert) { create(:advert, user: user) }
-	
+	let!(:advert) { create(:active_advert, user: user) }
 	def contacts
 		expect(page).to have_content "#{advert.location}"
 		expect(page).to have_content "#{advert.phone_number}"
@@ -21,7 +20,7 @@ feature Advert do
 		end
 
 		scenario "expect page to have one advert" do
-			advert2 = create :advert, user: user
+			advert2 = create :active_advert, user: user
 			visit adverts_path
 
 			expect(page.all('#adverts > .col-lg-4').size).to eq 2
@@ -29,7 +28,7 @@ feature Advert do
 
 		context "on advert click" do
 			scenario "redirect to single advert page" do
-				create :advert, user: user
+				create :active_advert, user: user
 				visit adverts_path
 				find("#detaljnije-#{advert.id}", text: "Pogledaj detaljnije..").click
 
@@ -51,6 +50,15 @@ feature Advert do
 
 		scenario "should have location,phone number and address" do
 			contacts
+		end
+
+		context "comments for commentable advert" do
+			it "should have five comments" do
+				expect(page.all('#table-comments > .comment-panel').size).to eq 5
+			end
+			it "should have one more comment" do
+				expect {click_button "Post Comment"}.to change(Comment, :count).by 1 	
+			end	
 		end
 		
 	end

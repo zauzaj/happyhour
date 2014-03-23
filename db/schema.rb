@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313192430) do
+ActiveRecord::Schema.define(version: 20140323121257) do
 
   create_table "adverts", force: true do |t|
     t.string   "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140313192430) do
     t.integer  "category_id"
     t.boolean  "active",         default: true
     t.string   "status"
+    t.boolean  "commentable"
   end
 
   add_index "adverts", ["category_id"], name: "index_adverts_on_category_id", using: :btree
@@ -34,6 +35,14 @@ ActiveRecord::Schema.define(version: 20140313192430) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.string   "owner"
+    t.integer  "advert_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
