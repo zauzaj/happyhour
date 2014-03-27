@@ -6,7 +6,7 @@ feature "User Dashboard" do
 	end
 
 	background do
-		sign_in user
+		login user
 	end
 
 	scenario "welcome user on dashboard" do
