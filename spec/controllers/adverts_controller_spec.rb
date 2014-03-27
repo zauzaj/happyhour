@@ -35,7 +35,6 @@ describe AdvertsController do
       active_advert = FactoryGirl.create :active_advert
       inactive_advert = FactoryGirl.create :inactive_advert
       get :index
-      binding.pry
       expect(assigns(:adverts)).to eq([active_advert])
     end
 

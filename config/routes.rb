@@ -7,7 +7,7 @@ HappyHour::Application.routes.draw do
   get "dashboards/index", to: "dashboards#index", as: "dashboard"
   
   resources :adverts do 
-    resources :comments, only: [:index, :create]
+    resources :comments, only: [:create]
   end
 
   root 'adverts#index', to:'advert#index'

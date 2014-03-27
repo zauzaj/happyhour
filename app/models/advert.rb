@@ -3,6 +3,10 @@ class Advert < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :category
 	has_many :comments
+
+	accepts_nested_attributes_for :comments
+
+
 	MAX_DESCRIPTION_CHARACTERS = 200
 
 	validates :title, presence: true
