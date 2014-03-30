@@ -21,5 +21,8 @@
 		.panel-heading
 			%h2
 				Komentari :
-		= render @comments
-		= render "comments/new"
+		- unless @advert.commentable
+			Komentari nisu prikazani za ovaj oglas
+		- else		
+			= render @comments
+			= render "comments/new"

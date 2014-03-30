@@ -10,7 +10,7 @@ class AdvertsController < ApplicationController
   # GET /adverts/1
   # GET /adverts/1.json
   def show
-    @comments = @advert.comments if @advert.commentable
+    @comments = @advert.comments
   end
 
   # GET /adverts/new
@@ -18,7 +18,7 @@ class AdvertsController < ApplicationController
     @advert = Advert.new
   end
 
-  # GET /adverts/1/edit
+  # GET /adverts/1/editgit 
   def edit
   end
 

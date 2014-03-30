@@ -7,7 +7,10 @@ class Advert < ActiveRecord::Base
 	accepts_nested_attributes_for :comments
 
 
-	PAYMENT = ["CASH", "CARD"]
+	PAYMENT = [
+             {id: 1, name: "CASH"},
+             {id: 2,name: "CARD"}
+            ]
   MAX_DESCRIPTION_CHARACTERS = 200
 
   validates :title, presence: true

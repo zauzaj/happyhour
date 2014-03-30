@@ -38,13 +38,12 @@ feature Advert do
 		end
 	end
 
-	context "on show page" do
+	feature "on show page" do
 		background do 
 			visit advert_path(advert)
 		end
 
 		scenario "should have full description" do
-			save_and_open_page
 			expect(page).to have_content "#{advert.description}"
 		end
 
@@ -52,15 +51,25 @@ feature Advert do
 			contacts
 		end
 
-		context "comments for commentable advert" do
-			it "should have five comments" do
+		feature "comments for commentable advert" do
+			scenario "should have five comments" do
 				expect(page.all('#table-comments > .comment-panel').size).to eq 5
 			end
-			it "should have one more comment" do
+			scenario "should have one more comment" do
 				expect {click_button "Post Comment"}.to change(Comment, :count).by 1 	
 			end	
+			
 		end
-		
+
+		feature "comments for uncommentable advert" do
+			background do
+				uncommentable_advert = FactoryGirl.create(:active_advert, commentable: false)
+				visit advert_path(uncommentable_advert)
+			end
+			scenario "comments shouldn't preview" do
+				expect(page).to have_content("Komentari nisu prikazani za ovaj oglas")
+			end
+		end
 	end
 	
 

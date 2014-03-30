@@ -14,3 +14,5 @@ puts "Successeful created user"
 Category.create(name:"Nocni klub")
 FactoryGirl.create :active_advert
 FactoryGirl.create :inactive_advert
+FactoryGirl.create :uncommentable_advert
+
