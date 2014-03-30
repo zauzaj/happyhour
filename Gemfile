@@ -40,6 +40,7 @@ gem 'jbuilder', '~> 1.2'
 group :test do 
   gem 'capybara'
   gem 'factory_girl_rails', '4.2.0'
+  gem 'database_cleaner'
 end
 
 group :test, :development do
