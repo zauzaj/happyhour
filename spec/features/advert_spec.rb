@@ -3,15 +3,12 @@ require 'spec_helper'
 feature Advert do
 	let(:user) { create :user}
 	let!(:advert) { create(:active_advert, user: user) }
+	
 	def contacts
 		expect(page).to have_content "#{advert.location}"
 		expect(page).to have_content "#{advert.phone_number}"
 		expect(page).to have_content "#{advert.address}"
 	end
-
-	# background do
-	# 	visit root_path
-	# end
 
 	feature "index page" do
 		scenario "expect page to have one advert" do
@@ -38,31 +35,17 @@ feature Advert do
 		end
 	end
 
-	context "on show page" do
+	feature "show page" do
 		background do 
 			visit advert_path(advert)
 		end
 
 		scenario "should have full description" do
-			save_and_open_page
 			expect(page).to have_content "#{advert.description}"
 		end
 
 		scenario "should have location,phone number and address" do
 			contacts
 		end
-
-		context "comments for commentable advert" do
-			it "should have five comments" do
-				expect(page.all('#table-comments > .comment-panel').size).to eq 5
-			end
-			it "should have one more comment" do
-				expect {click_button "Post Comment"}.to change(Comment, :count).by 1 	
-			end	
-		end
-		
 	end
-	
-
-
 end
