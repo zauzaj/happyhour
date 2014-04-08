@@ -30,7 +30,6 @@ feature Advert do
 				find("#detaljnije-#{advert.id}", text: "Pogledaj detaljnije..").click
 
 				expect(current_path).to eq(advert_path(advert))
-				save_and_open_page
 			end
 		end
 	end
