@@ -5,7 +5,7 @@ class Advert < ActiveRecord::Base
 	has_many :comments
 
 	accepts_nested_attributes_for :comments
-
+  serialize :payment_methods, Array
 
 	PAYMENT = [
              {id: 1, name: "CASH"},

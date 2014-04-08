@@ -59,7 +59,7 @@ describe AdvertsController do
   describe "GET new" do
     it "assigns a new advert as @advert" do
       expect(Advert).to receive(:bla_truc)
-      get :new, {}, valid_session
+      get :new, {}
       # expect(assigns(:advert)).to be_a_new(Advert)
     end
   end
@@ -67,7 +67,7 @@ describe AdvertsController do
   describe "GET edit" do
     it "assigns the requested advert as @advert" do
       advert = Advert.create! valid_attributes
-      get :edit, {:id => advert.to_param}, valid_session
+      get :edit, {:id => advert.to_param}
       expect(assigns(:advert)).to eq(advert)
     end
   end
@@ -76,18 +76,18 @@ describe AdvertsController do
     describe "with valid params" do
       it "creates a new Advert" do
         expect {
-          post :create, {:advert => valid_attributes}, valid_session
+          post :create, {:advert => valid_attributes}
         }.to change(Advert, :count).by(1)
       end
 
       it "assigns a newly created advert as @advert" do
-        post :create, {:advert => valid_attributes}, valid_session
+        post :create, {:advert => valid_attributes}
         expect(assigns(:advert)).to be_a(Advert)
         expect(assigns(:advert)).to be_persisted
       end
 
       it "redirects to the created advert" do
-        post :create, {:advert => valid_attributes}, valid_session
+        post :create, {:advert => valid_attributes}
         expect(response).to redirect_to(Advert.last)
       end
     end
