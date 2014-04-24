@@ -5,9 +5,12 @@ class Advert < ActiveRecord::Base
 	has_many :comments
 
 	accepts_nested_attributes_for :comments
+  serialize :payment_methods, Array
 
-
-	PAYMENT = ["CASH", "CARD"]
+	PAYMENT = [
+             {id: 1, name: "CASH"},
+             {id: 2,name: "CARD"}
+            ]
   MAX_DESCRIPTION_CHARACTERS = 200
 
   validates :title, presence: true

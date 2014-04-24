@@ -43,7 +43,6 @@ describe "Advert" do
 	context '.active' do
 		it 'returns only active adverts' do
 			create(:inactive_advert)
-
 			expect(Advert.active.count).to eq 1
 		end
 	end

@@ -34,12 +34,13 @@ feature Advert do
 		end
 	end
 
-	feature "show page" do
+	feature "on show page" do
 		background do 
 			visit advert_path(advert)
 		end
 
 		scenario "should have full description" do
+			save_and_open_page
 			expect(page).to have_content "#{advert.description}"
 		end
 

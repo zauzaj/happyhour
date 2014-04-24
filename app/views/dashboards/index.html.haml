@@ -21,8 +21,15 @@
     #new_advert.tab-pane.fade
       %h3
         Add new advert
-      %p
-        Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+      = simple_form_for Advert.new do |f|
+        = f.input :title
+        = f.text_field :description, row: 10
+        = f.input :payment_method, as: :check_boxes, collection: Advert::PAYMENT.map{|m| [m[:name],m[:id]]}
+        = f.input :is_commentable, as: :boolean
+        = f.input :address
+        = f.input :location
+        = f.input :phone_number
+        = f.submit "Postavi oglas"
     #all_adverts.tab-pane-fade
       %h3
         All my adds
