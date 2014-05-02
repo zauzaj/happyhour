@@ -20,6 +20,7 @@ feature "User Dashboard" do
 	feature "clicking on tabs" do
 		# scenario "click on profile" do 
 		# end
+		
 		scenario "click on add new advert" do
 			fill_in "advert_title", with: "Restoran BatajaBoki"
 			fill_in "advert_description", 
@@ -33,8 +34,34 @@ feature "User Dashboard" do
 			fill_in "advert_phone_number", with: "066753268"
 			click_button "Postavi oglas"
 		end
+
 		# scenario "click on all my adverts" do
 		# end
 	end
 
 end
+
+
+# And /I click button "(.*)"/ do |button|
+# 	click_button button
+# end
+
+# Then /I should see "(.*)"/ do |text|
+# 	expect(page.find('h3#advert_description').text).to eq text
+# end
+
+
+# Feature: Add advert
+# 	As a restaurant owner
+# 	So users can see promotions
+# 	I want to add advert
+
+
+# 	Scenario: Successfully add advert
+# 		Given I am on the dashboard page
+# 		When I click on Add new advert tab
+# 		And I fill in "advert_title" with "Our first advert"
+# 		And I fill in "advert_description" with "Our first advert description"
+# 		And I click button "Postavi oglas"
+# 		And I click button "Izbrisi"
+# 		Then I should see "Our first advert"

@@ -24,9 +24,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -36,38 +33,26 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# A Rails engine for drawing your app's ER diagram
+gem 'erd'
+
+# Run JavaScript code from Ruby
+gem 'execjs'
 
 group :test do 
   gem 'capybara'
   gem 'factory_girl_rails', '4.2.0'
   gem 'database_cleaner'
+	gem 'launchy'
+  gem 'rspec-collection_matchers'
 end
 
 group :test, :development do
-  gem 'rspec-rails', '3.0.0.beta1'
-  gem 'rspec-collection_matchers'
+  gem 'rspec-rails', '3.0.0.beta2'
 	gem 'pry-rails'
-	gem 'launchy'
 end
 
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
 end
-
-
-
-gem 'erd'
-gem 'execjs'
-#gem 'therubyracer'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
