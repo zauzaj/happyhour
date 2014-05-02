@@ -23,7 +23,8 @@
         Add new advert
       = simple_form_for Advert.new do |f|
         = f.input :title
-        = f.text_field :description, row: 10
+        = f.input :description, as: :text, row: 10
+        = f.association :category
         = f.input :payment_method, as: :check_boxes, collection: Advert::PAYMENT.map{|m| [m[:name],m[:id]]}
         = f.input :is_commentable, as: :boolean
         = f.input :address

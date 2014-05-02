@@ -10,7 +10,7 @@ gem 'carrierwave'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'mysql2'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -23,6 +23,9 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -41,15 +44,15 @@ gem 'execjs'
 
 group :test do 
   gem 'capybara'
-  gem 'factory_girl_rails', '4.2.0'
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
-	gem 'launchy'
+  gem 'launchy'
   gem 'rspec-collection_matchers'
 end
 
 group :test, :development do
   gem 'rspec-rails', '3.0.0.beta2'
-	gem 'pry-rails'
+  gem 'pry-rails'
 end
 
 group :development do
