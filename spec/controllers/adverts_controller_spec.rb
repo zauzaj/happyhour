@@ -58,9 +58,9 @@ describe AdvertsController do
 
   describe "GET new" do
     it "assigns a new advert as @advert" do
-      expect(Advert).to receive(:bla_truc)
-      get :new, {}
-      # expect(assigns(:advert)).to be_a_new(Advert)
+      get :new
+      
+      expect(assigns(:advert)).to be_a_new(Advert)
     end
   end
 
