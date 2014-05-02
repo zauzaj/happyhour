@@ -50,9 +50,9 @@ describe AdvertsController do
   describe "GET show" do
     it "assigns the requested advert as @advert" do
       active_advert = FactoryGirl.create :active_advert
-      get :show, {:id => active_advert.to_param}
+      get :show, { :id => active_advert.to_param }
+
       expect(assigns(:advert)).to eq(active_advert)
-      expect(assigns(:comments)).to eq([active_advert.comments])
     end
   end
 
