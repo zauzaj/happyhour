@@ -18,7 +18,7 @@ class AdvertsController < ApplicationController
     @advert = Advert.new
   end
 
-  # GET /adverts/1/editgit 
+  # GET /adverts/1/edit
   def edit
   end
 
@@ -28,7 +28,6 @@ class AdvertsController < ApplicationController
     @advert = Advert.new(advert_params)
     respond_to do |format|
       if @advert.save
-        raise
         format.html { redirect_to @advert, notice: 'Advert was successfully created.' }
         format.json { render action: 'show', status: :created, location: @advert }
       else

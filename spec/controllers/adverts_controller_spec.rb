@@ -24,7 +24,7 @@ describe AdvertsController do
   # Advert. As you add validations to Advert, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) { attributes_for(:active_advert) }
-  # let(:comment) {attributes_for(:comment)}
+  
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # AdvertsController. Be sure to keep this updated too.
@@ -167,6 +167,5 @@ describe AdvertsController do
       expect(response).to redirect_to(adverts_url)
     end
   end
-
 end
 
