@@ -10,6 +10,28 @@ feature Advert do
 		expect(page).to have_content "#{advert.address}"
 	end
 
+	feature "clicking on tabs" do
+		# scenario "click on profile" do 
+		# end
+		
+		scenario "click on add new advert" do
+			fill_in "advert_title", with: "Restoran BatajaBoki"
+			fill_in "advert_description", 
+				with: "Novo u gradu. Restoran domace kuhinje. Specijlani popusti !"
+			check "advert_payment_method_1"
+			check "advert_payment_method_2"
+
+			check "advert_is_commentable"
+			fill_in "advert_address", with: "Batajnickih zrtava 23"
+			fill_in "advert_location", with: "Batajnica"
+			fill_in "advert_phone_number", with: "066753268"
+			click_button "Postavi oglas"
+		end
+
+		# scenario "click on all my adverts" do
+		# end
+	end
+
 	feature "index page" do
 		scenario "expect page to have one advert" do
 			visit adverts_path
@@ -34,7 +56,7 @@ feature Advert do
 		end
 	end
 
-	feature "on show page" do
+	feature "show page" do
 		background do 
 			visit advert_path(advert)
 		end
