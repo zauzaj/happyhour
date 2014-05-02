@@ -24,7 +24,7 @@ describe AdvertsController do
   # Advert. As you add validations to Advert, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) { attributes_for(:active_advert) }
-  
+  let(:user) { FactoryGirl.create(:user) }
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # AdvertsController. Be sure to keep this updated too.
@@ -155,15 +155,15 @@ describe AdvertsController do
 
   describe "DELETE destroy" do
     it "destroys the requested advert" do
-      advert = Advert.create! valid_attributes
+      advert = FactoryGirl.create(:active_advert, user: user, comments_count: 0)
       expect {
-        delete :destroy, {:id => advert.to_param}, valid_session
+        delete :destroy, {:id => advert.to_param}
       }.to change(Advert, :count).by(-1)
     end
 
     it "redirects to the adverts list" do
-      advert = Advert.create! valid_attributes
-      delete :destroy, {:id => advert.to_param}, valid_session
+      advert = FactoryGirl.create(:active_advert, user: user, comments_count: 0)
+      delete :destroy, {:id => advert.to_param}
       expect(response).to redirect_to(adverts_url)
     end
   end
