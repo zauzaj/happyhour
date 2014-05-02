@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature "Advert comments" do
   background do
-    @advert = FactoryGirl.create(:active_advert)
+    @advert = FactoryGirl.create(:active_advert, comments_count: 0)
   end
 
 

@@ -24,5 +24,4 @@ FactoryGirl.define do
 	factory :uncommentable_advert, parent: :active_advert do
 		commentable false
 	end
-
 end
