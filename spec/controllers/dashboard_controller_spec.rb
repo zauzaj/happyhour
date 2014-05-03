@@ -10,7 +10,7 @@ describe DashboardsController do
     	sign_in(user)
       get 'index'
       
-      response.should be_success
+      expect(response).to render_template :index
     end
   end
 
