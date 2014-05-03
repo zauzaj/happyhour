@@ -117,8 +117,8 @@ describe AdvertsController do
         # specifies that the Advert created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        expect_any_instance_of(Advert).to receive(:update).with({ "these" => "params" })
-        put :update, {:id => advert.to_param, :advert => { "these" => "params" }}
+        expect_any_instance_of(Advert).to receive(:update).with({ title: 'bla truc' })
+        put :update, {:id => advert.to_param, :advert => { title: 'bla truc' }}
       end
 
       it "assigns the requested advert as @advert" do
