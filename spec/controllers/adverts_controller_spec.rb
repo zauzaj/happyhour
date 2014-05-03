@@ -96,14 +96,14 @@ describe AdvertsController do
       it "assigns a newly created but unsaved advert as @advert" do
         # Trigger the behavior that occurs when invalid params are submitted
         Advert.any_instance.stub(:save).and_return(false)
-        post :create, {:advert => {  }}, valid_session
+        post :create, {:advert => {  }}
         expect(assigns(:advert)).to be_a_new(Advert)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Advert.any_instance.stub(:save).and_return(false)
-        post :create, {:advert => {  }}, valid_session
+        post :create, {:advert => {  }}
         expect(response).to render_template("new")
       end
     end
@@ -118,18 +118,18 @@ describe AdvertsController do
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         expect_any_instance_of(Advert).to receive(:update).with({ "these" => "params" })
-        put :update, {:id => advert.to_param, :advert => { "these" => "params" }}, valid_session
+        put :update, {:id => advert.to_param, :advert => { "these" => "params" }}
       end
 
       it "assigns the requested advert as @advert" do
         advert = Advert.create! valid_attributes
-        put :update, {:id => advert.to_param, :advert => valid_attributes}, valid_session
+        put :update, {:id => advert.to_param, :advert => valid_attributes}
         expect(assigns(:advert)).to eq(advert)
       end
 
       it "redirects to the advert" do
         advert = Advert.create! valid_attributes
-        put :update, {:id => advert.to_param, :advert => valid_attributes}, valid_session
+        put :update, {:id => advert.to_param, :advert => valid_attributes}
         expect(response).to redirect_to(advert)
       end
     end
@@ -139,7 +139,7 @@ describe AdvertsController do
         advert = Advert.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Advert.any_instance.stub(:save).and_return(false)
-        put :update, {:id => advert.to_param, :advert => {  }}, valid_session
+        put :update, {:id => advert.to_param, :advert => {  }}
         expect(assigns(:advert)).to eq(advert)
       end
 
@@ -147,7 +147,7 @@ describe AdvertsController do
         advert = Advert.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Advert.any_instance.stub(:save).and_return(false)
-        put :update, {:id => advert.to_param, :advert => {  }}, valid_session
+        put :update, {:id => advert.to_param, :advert => {  }}
         expect(response).to render_template("edit")
       end
     end

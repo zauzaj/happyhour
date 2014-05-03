@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-
   it "has valid factory" do
     expect(build(:user)).to be_valid
   end
@@ -26,7 +25,4 @@ describe User do
     user_dup = build(:user, :user_name => "user")
     expect(user_dup).to have(1).errors_on(:user_name)
   end
-
-
-
 end

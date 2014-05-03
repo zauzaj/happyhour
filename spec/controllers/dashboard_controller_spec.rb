@@ -9,6 +9,7 @@ describe DashboardsController do
     	@request.env["devise.mapping"] = Devise.mappings[:user]
     	sign_in(user)
       get 'index'
+      
       response.should be_success
     end
   end
