@@ -17,7 +17,7 @@
       %h3
         This is your profile
       %p
-        Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+        %button.btn.btn-default{"data-toggle" => "modal", href: "#previewProfile"} Preview
     #new_advert.tab-pane.fade
       %h3
         Add new advert
@@ -31,7 +31,7 @@
         = f.input :location
         = f.input :phone_number
         = f.submit "Postavi oglas"
-    #all_adverts.tab-pane-fade
+    #all_adverts.tab-pane.fade
       %h3
         All my adds
       %p

@@ -19,4 +19,18 @@ feature "User Dashboard" do
 		
 		expect(current_path).to eq root_path
 	end
+
+	feature "click on Profile link" do
+		background do
+			click_link "Profile"
+		end
+		scenario "have 'Preview' button" do
+			expect(page).to have_button("Preview")
+		end
+
+		scenario "have 'Save Changes' link button" do
+			expect(page).to have_button("Save Changes")
+		end
+
+	end
 end
