@@ -32,5 +32,10 @@ feature "User Dashboard" do
 			expect(page).to have_button("Save Changes")
 		end
 
+		scenario "show modal form on click 'Preview' " do
+			click_link 'Profile'
+			expect(response).have_tag('div#previewProfile[style = ?]',/display:\s*block/)
+		end 
+		
 	end
 end
