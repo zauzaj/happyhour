@@ -2,6 +2,15 @@
 	.modal-dialog
 		.modal-content
 			.modal-header
-				%h3
-					Profile Preview
-					
+				%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+				%h3 Profile Preview
+			.modal-body
+				%h5 Ime:
+				= current_user.first_name
+				%hr
+				%h5 Prezime:
+				= current_user.last_name
+				%hr
+				%h5 Email:
+				= current_user.email
+				%hr

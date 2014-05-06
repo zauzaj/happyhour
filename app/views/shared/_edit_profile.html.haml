@@ -1,0 +1,41 @@
+%h2
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = f.error_notification
+  .form-group
+    = f.label "Email", class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.input :email, :required => false, placeholder: current_user.email, label: false
+  .form-group  
+    = f.label "Nick", class: "control-label col-xs-2"
+    .col-xs-10
+      = f.input :user_name, :required => false, placeholder: current_user.user_name, label: false
+  .form-group  
+    = f.label "Ime", class: "control-label col-xs-2"
+    .col-xs-10
+      = f.input :first_name, :required => false, placeholder: current_user.first_name, label: false
+  .form-group  
+    = f.label "Prezime", class: "control-label col-xs-2"
+    .col-xs-10  
+      = f.input :last_name, :required => false, placeholder: current_user.last_name, label: false
+  .form-group  
+    = f.label "Mobilni 1", class: "control-label col-xs-2"
+    .col-xs-10
+      = f.input :mobile_number_1, :required => false, placeholder: current_user.mobile_number_1, label: false
+  .form-group  
+    = f.label "Mobilni 2", class: "control-label col-xs-2"
+    .col-xs-10
+      = f.input :mobile_number_2, :required => false, placeholder: current_user.mobile_number_2, label: false 
+  .form-group
+    = f.label "Avatar", class: "control-label col-xs-2"
+    .col-xs-10
+      = f.input_field :image      
+      = image_tag current_user.image_url(:thumb) if current_user.image?
+  .form-group
+    .col-xs-offset-2.col-xs-10
+      = f.button :submit, "Save Changes", class: "btn btn-primary"
+.form-group
+  .col-xs-offset-2.col-xs-13
+    %button.btn.btn-default{"data-toggle" => "modal", href: "#previewProfile"} Preview
+/ %h3 Cancel my account
+/ %p
+/   Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}

@@ -3,9 +3,9 @@
   = link_to "Back to home", root_path
 %h3
   %center
-    This is your dashboard
+    Welcome to your dashboard ....
 .bs-example
-  %ul.nav.nav-tabs
+  %ul.nav.nav-tabs.dashboard-tabs
     %li.active
       = link_to "Profile", "#profile", :data => {:toggle => 'tab'}
     %li
@@ -14,12 +14,7 @@
       = link_to "All my adverts", "#all_adverts", :data => {:toggle => 'tab'}
   .tab-content
     #profile.tab-pane.fade.in.active
-      %h3
-        This is your profile
-      %p
-        %button.btn.btn-default{"data-toggle" => "modal", href: "#previewProfile"} Preview
-      %p
-        %button.btn Save Changes
+      = render 'shared/edit_profile'
     #new_advert.tab-pane.fade
       %h3
         Add new advert
