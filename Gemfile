@@ -5,7 +5,7 @@ gem "haml"
 gem "html2haml"
 gem 'simple_form'
 gem 'carrierwave'
-
+gem "rmagick", "~> 2.13.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
