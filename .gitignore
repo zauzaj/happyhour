@@ -16,3 +16,5 @@
 /tmp
 *.sublime*
 /config/database.yml
+
+/public/uploads
