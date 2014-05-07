@@ -1,5 +1,5 @@
 class AdvertsController < ApplicationController
-  before_action :set_advert, only: [:show, :edit, :update, :destroy, :hello]
+  before_action :set_advert, only: [:show, :edit, :update, :destroy]
 
   # GET /adverts
   # GET /adverts.json
@@ -26,6 +26,7 @@ class AdvertsController < ApplicationController
   # POST /adverts.json
   def create
     @advert = Advert.new(advert_params)
+    @advert.user = current_user
     respond_to do |format|
       if @advert.save
         format.html { redirect_to @advert, notice: 'Advert was successfully created.' }
@@ -69,6 +70,6 @@ class AdvertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advert_params
-      params[:advert].permit(:title, :description, :address, :location, :phone_number, :is_commentable, :payment_method, :user_id, :category_id)
+      params[:advert].permit(:title, :description, :address, :location, :phone_number, :commentable, :payment_method, :category_id)
     end
 end
