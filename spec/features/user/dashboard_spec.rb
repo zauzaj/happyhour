@@ -48,18 +48,20 @@ feature "User Dashboard" do
 	end
 
 	feature "click on 'All my adverts' link" do
-		background do 
+		scenario "should have no adverts" do
 			visit dashboard_path
 			click_link "All my adverts"
-		end
-		scenario "should have no adverts" do
+
 			expect(page).to have_content("Niste postavili ni jedan oglas")			
 		end 
+		
 		scenario "should have five adverts" do
 			5.times do
 				FactoryGirl.create(:active_advert, user: user)
-			end
-			save_and_open_page
+			end			
+			visit dashboard_path
+			click_link "All my adverts"
+
 			expect(page.all('#my-adverts > .col-lg-12').size).to eq 5
 		end 
 	end

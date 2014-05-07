@@ -4,7 +4,6 @@ describe DashboardsController do
   describe "GET 'index'" do
   	let(:user) { FactoryGirl.create(:user) }
     
-    # It should be before each since devise session is cleared between tests.
     before :each do
       @request.env["devise.mapping"] = Devise.mappings[:user]
       sign_in(user)
@@ -23,5 +22,4 @@ describe DashboardsController do
       expect(assigns(:all_my_adverts)).to eq([advert])
     end
   end
-
 end
