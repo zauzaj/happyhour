@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140506195110) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.boolean  "active",         default: true
+    t.string   "status"
     t.boolean  "commentable"
   end
 

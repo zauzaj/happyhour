@@ -9,7 +9,7 @@ feature "User - Sign up" do
 			fill_in 'user_password_confirmation', with: "password"		
 			fill_in 'user_email', with: "user@hh.com"
 			fill_in 'user_mobile_number_1', with: "08844838482"
-			click_button "Upload Avatar"
+			# click_button "Upload Avatar"
 			click_button 'Sign up'
 		end
 
