@@ -15,7 +15,7 @@ feature Advert do
 				with: "Novo u gradu. Restoran domace kuhinje. Specijlani popusti!"
 			check "advert_payment_method_1"
 			check "advert_payment_method_2"
-			check "advert_is_commentable"
+			check "advert_commentable"
 			fill_in "advert_address", with: "Batajnickih zrtava 23"
 			fill_in "advert_location", with: "Batajnica"
 			fill_in "advert_phone_number", with: "066753268"

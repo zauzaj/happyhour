@@ -22,6 +22,8 @@ feature "User Dashboard" do
 
 	feature "click on Profile link" do
 		background do
+			visit dashboard_path
+
 			click_link "Profile"
 		end
 		scenario "have 'Preview' button" do
@@ -32,10 +34,33 @@ feature "User Dashboard" do
 			expect(page).to have_button("Save Changes")
 		end
 
-		scenario "show modal form on click 'Preview' " do
-			click_link 'Profile'
-			expect(response).have_tag('div#previewProfile[style = ?]',/display:\s*block/)
+		scenario "edit profile" do
+			fill_in "user_email", with: "novi_email@email.com"
+			fill_in "user_user_name", with: "novinik"
+			fill_in "user_first_name", with: "novo ime"
+			fill_in "user_last_name", with: "novo prezime"
+			fill_in "user_mobile_number_1", with: "35147552"
+			fill_in "user_mobile_number_2", with: "35144321"
+			click_button "Save Changes"
+
+			expect(page).to have_content("Successfully updated")
+		end
+	end
+
+	feature "click on 'All my adverts' link" do
+		background do 
+			visit dashboard_path
+			click_link "All my adverts"
+		end
+		scenario "should have no adverts" do
+			expect(page).to have_content("Niste postavili ni jedan oglas")			
 		end 
-		
+		scenario "should have five adverts" do
+			5.times do
+				FactoryGirl.create(:active_advert, user: user)
+			end
+			save_and_open_page
+			expect(page.all('#my-adverts > .col-lg-12').size).to eq 5
+		end 
 	end
 end

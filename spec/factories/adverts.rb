@@ -6,7 +6,7 @@ FactoryGirl.define do
 		address "Cara Dusana 12"
 		location "Zemun"
 		phone_number "11111111"
-		status "active"
+		active true
 		commentable true
 		user
 		category 
@@ -19,7 +19,7 @@ FactoryGirl.define do
 	end  
 	
 	factory :inactive_advert, parent: :active_advert do
-		status "inactive"
+		active false
 	end
 	factory :uncommentable_advert, parent: :active_advert do
 		commentable false

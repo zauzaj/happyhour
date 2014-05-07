@@ -20,7 +20,7 @@ class Advert < ActiveRecord::Base
   class << self
   	#TODO Potrebno je da se automatski prebauje na inactive ako je oglas aktivan vise od 30 dana
     def active 
-      where(status: "active")
+      where(:active => true)
     end
   end
 end

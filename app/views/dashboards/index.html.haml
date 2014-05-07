@@ -23,15 +23,40 @@
         = f.input :description, as: :text, row: 10
         = f.association :category
         = f.input :payment_method, as: :check_boxes, collection: Advert::PAYMENT.map{|m| [m[:name],m[:id]]}
-        = f.input :is_commentable, as: :boolean
+        = f.input :commentable, as: :boolean
         = f.input :address
         = f.input :location
         = f.input :phone_number
         = f.submit "Postavi oglas"
     #all_adverts.tab-pane.fade
-      %h3
-        All my adds
-      %p
-        Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+      - if @all_my_adverts.blank?
+        %h3
+          Niste postavili ni jedan oglas 
+      - else
+        .container#my-adverts
+        - @all_my_adverts.each do |advert|
+          .col-lg-12
+            .panel.panel-default
+              .panel-body
+                .panel-header
+                  %h3
+                    %center 
+                      = advert.title
+                %h4
+                  = advert.description.truncate 25
+                  /TODO Postaviti Profil sliku za oglas
+                .panel-side.pull-right
+                  %h5
+                    Kontakt:
+                    = advert.phone_number
+                  %h5
+                    Lokacija:
+                    = advert.location
+                  %h5
+                    Adresa:
+                    = advert.address
+                  %h6
+                    = link_to "Pogledaj detaljnije..", advert, id: "detaljnije-#{advert.id}"
+
 = render 'shared/modals/preview_profile'
 

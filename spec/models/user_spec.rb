@@ -11,13 +11,8 @@ describe User do
 
   end
   it "invalid with maximum length user_name" do
-    user = build(:user, :user_name => "a" * 8)
+    user = build(:user, :user_name => "a" * 21)
     expect(user).to have(1).errors_on(:user_name)
-  end
-
-  it "invalid without mobile_number_1" do
-    user = build(:user, :mobile_number_1 => nil)
-    expect(user).to have(1).errors_on(:mobile_number_1)
   end
 
   it "invalid with duplicate user name" do

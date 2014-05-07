@@ -1,6 +1,6 @@
 HappyHour::Application.routes.draw do
   
-  devise_for :users #do
+  devise_for :users, :controllers => {:registrations => "session/registrations"}
   #   get 'users/sign_out' => 'sessions#destroy', :as => :destroy_user_session
   # end
 
