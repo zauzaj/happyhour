@@ -21,3 +21,12 @@ body.dashboard{
 	text-align: center;
 	border-bottom: 0px solid #D7D4EC;
 }
+
+notice{
+font-family: serif;
+display: block;
+text-align: center;
+font-size: large;
+background-color: rgb(65, 89, 105);
+color: white;
+}
