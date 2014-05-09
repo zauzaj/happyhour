@@ -1,8 +1,36 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.bs-example{
-	position: fixed;
-	top: 200px;
-	left: 40%;
+.dashboard{
+	.dashboard-panel{
+		margin-left: 20%;
+		margin-right: 20%;
+		margin-top: 10px;
+		background-color: #C9C5C5;
+		border: groove;
+		border-color: lavenderblush;
+		border-width: thick;
+	}
+}
+#avatar{
+	padding-top: 10px;
+	text-align: center;
+}
+#my-adverts{
+	width: 1000px;
+	margin: inherit;
+}
+#profile{
+	width: 1000px;
+	margin: inherit;
+}
+
+.modal-preview-profile{
+	width: 100%;
+}	
+
+.modal-content{
+	.preview-profile{
+		background-color: #C9C5C5;
+	}
 }
