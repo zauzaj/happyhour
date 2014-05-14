@@ -8,11 +8,11 @@
   .dashboard-panel
     %ul.nav.nav-pills
       %li.active
-        = link_to "Profile", "#profile", :data => {:toggle => 'tab'}
+        = link_to "Profile", "#profile", data: { toggle: 'tab' }
       %li
-        = link_to "Add new advert", "#new_advert", :data => {:toggle => 'tab'}
+        = link_to "Add new advert", "#new_advert", data: { toggle: 'tab' }
       %li
-        = link_to "All my adverts", "#all_adverts", :data => {:toggle => 'tab'}
+        = link_to "All my adverts", "#all_adverts", data: { toggle: 'tab' }
     %p
     .tab-content
       #profile.tab-pane.fade.in.active

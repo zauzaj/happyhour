@@ -20,31 +20,26 @@ feature "User Dashboard" do
 		expect(current_path).to eq root_path
 	end
 
-	feature "click on Profile link" do
-		background do
+	feature "Edit profile" do
+		scenario "Succesful update" do
 			visit dashboard_path
-
 			click_link "Profile"
-		end
-		scenario "have 'Preview' button" do
-			expect(page).to have_button("Preview")
-		end
 
-		scenario "have 'Save Changes' link button" do
-			expect(page).to have_button("Save Changes")
-		end
-
-		scenario "edit profile" do
-			fill_in "user_email", with: "novi_email@email.com"
 			fill_in "user_user_name", with: "novinik"
-			fill_in "user_first_name", with: "novo ime"
-			fill_in "user_last_name", with: "novo prezime"
-			fill_in "user_mobile_number_1", with: "35147552"
-			fill_in "user_mobile_number_2", with: "35144321"
 			click_button "Save Changes"
 
-			expect(page).to have_content("Successfully updated")
+			expect(page).to have_content "Successfully updated"
 		end
+
+		scenario 'Unsuccessful update' do
+			visit dashboard_path
+			click_link 'Profile'
+
+			fill_in "user_user_name", with: "aa"
+			click_button "Save Changes"
+
+			expect(page).to have_content "Error"
+		end 
 	end
 
 	feature "click on 'All my adverts' link" do

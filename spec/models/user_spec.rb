@@ -8,7 +8,6 @@ describe User do
   it "invalid with minimum length user_name" do
     user = build(:user, :user_name => "aa")
     expect(user).to have(1).errors_on(:user_name)
-
   end
   it "invalid with maximum length user_name" do
     user = build(:user, :user_name => "a" * 21)
