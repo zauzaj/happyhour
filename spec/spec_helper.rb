@@ -39,6 +39,14 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.after(:all) do
+    # Get rid of the linked images
+    if Rails.env.test?
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads/#{Rails.env}"])
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads/#{Rails.env}/tmp"])
+    end
+  end
+
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
   config.include LoginMacros
