@@ -34,7 +34,6 @@ describe Session::RegistrationsController do
         expect(response).to redirect_to dashboard_path
       end
 
-      # How to test this
       it 'shows an unsuccessful message' do
         expect(flash[:notice]).to eq 'Error'
       end
