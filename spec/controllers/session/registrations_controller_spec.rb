@@ -2,10 +2,12 @@ require 'spec_helper'
 
 describe Session::RegistrationsController do
 	before :each do
-		@current_user = double('user', id: 1)
-    request.env['warden'].stub :authenticate! => @current_user
-    controller.stub :current_user => @current_user
+		# @current_user = double('user', id: 1)
+  #   request.env['warden'].stub :authenticate! => @current_user
+  #   controller.stub :current_user => @current_user
     request.env['devise.mapping'] = Devise.mappings[:user]
+    sign_in FactoryGirl.create(:user)
+    @current_user ||= controller.current_user
 	end
 
 	describe '#update' do
