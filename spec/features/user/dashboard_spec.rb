@@ -35,7 +35,7 @@ feature "User Dashboard" do
 			visit dashboard_path
 			click_link 'Profile'
 
-			fill_in "user_user_name", with: "aa"
+			fill_in "user_user_name", with: nil
 			click_button "Save Changes"
 
 			expect(page).to have_content "Error"

@@ -2,9 +2,6 @@ require 'spec_helper'
 
 describe Session::RegistrationsController do
 	before :each do
-		# @current_user = double('user', id: 1)
-  #   request.env['warden'].stub :authenticate! => @current_user
-  #   controller.stub :current_user => @current_user
     request.env['devise.mapping'] = Devise.mappings[:user]
     sign_in FactoryGirl.create(:user)
     @current_user ||= controller.current_user
@@ -14,7 +11,7 @@ describe Session::RegistrationsController do
 		context 'successful update' do
       before(:each) do
         @current_user.stub(:update_attributes).and_return(true)
-        put :update, id: @current_user.id, user: { username: 'biske' }
+        put :update, user: { user_name: nil }
       end
 
       it 'redirects to the dashboard page' do
@@ -29,7 +26,7 @@ describe Session::RegistrationsController do
     context 'unsuccessful update' do
       before(:each) do
         @current_user.stub(:update_attributes).and_return(false)
-        put :update, user: { email: '' }
+        put :update
       end
 
       it 'redirects to the dashboard page' do

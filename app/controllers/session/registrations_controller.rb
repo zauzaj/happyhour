@@ -5,7 +5,7 @@ class Session::RegistrationsController < Devise::RegistrationsController
 		if current_user.update_attributes(user_params)
 			redirect_to dashboard_path, notice: "Successfully updated"
 		else
-			redirect_to dashboard_path, notice: "Error"		
+			redirect_to dashboard_path, notice: "Error"	
 		end
 	end
 
@@ -15,6 +15,6 @@ class Session::RegistrationsController < Devise::RegistrationsController
 
 	private
 	def user_params
-		devise_parameter_sanitizer.sanitize(:account_update).reject {|k,v| v.blank?}
+		devise_parameter_sanitizer.sanitize(:account_update)
 	end
 end
