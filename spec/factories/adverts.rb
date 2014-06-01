@@ -10,6 +10,7 @@ FactoryGirl.define do
 		commentable true
 		user
 		category 
+		settlement
 		ignore do 
 			comments_count 5
 		end

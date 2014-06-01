@@ -45,6 +45,12 @@ describe AdvertsController do
       
       get :index
     end
+
+    it "assigns all settlements as @settlements" do
+      settlement = FactoryGirl.create(:settlement)
+      get :index
+      expect(assigns(:settlements)).to eq([settlement])
+    end
   end
 
   describe "GET show" do

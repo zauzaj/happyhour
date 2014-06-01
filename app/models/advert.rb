@@ -1,6 +1,7 @@
 class Advert < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :category
+  belongs_to :settlement
 	has_many :comments
 
 	accepts_nested_attributes_for :comments

@@ -1,37 +1,41 @@
+%button.btn.btn-default.pull-right{"data-toggle" => "modal", href: "#subscribe", id:"newsletter-subscribe"}
+	Prijava za obavestenja
 .container
-  .jumbotron
-    %center
-      %h1
-        DOBRODOSLI NA HAPPYHOUR.COM
-        %p
-          OVDE SE NALAZE NAJEFTINIJA MESTA ZA IZLAZAK
-      %h4
-        Mi se trudimo da ucinimo vas zivot jos jeftinijim
-  .row.col-lg-12
-    .panel.panel-default
-      .panel-body
-        This is where search criteria goes
-  .container#adverts
-    - @adverts.each do |advert|
-      .col-lg-4
-        .panel.panel-default
-          .panel-body
-            .panel-header
-              %h3
-                %center 
-                  = advert.title
-            %h4
-              = advert.description.truncate 25
-              /TODO Postaviti Profil sliku za oglas
-            .panel-side.pull-right
-              %h5
-                Kontakt:
-                = advert.phone_number
-              %h5
-                Lokacija:
-                = advert.location
-              %h5
-                Adresa:
-                = advert.address
-              %h6
-                = link_to "Pogledaj detaljnije..", advert, id: "detaljnije-#{advert.id}"
+	.jumbotron
+		%center
+			%h1
+				DOBRODOSLI NA HAPPYHOUR.COM
+				%p
+					OVDE SE NALAZE NAJEFTINIJA MESTA ZA IZLAZAK
+			%h4
+				Mi se trudimo da ucinimo vas zivot jos jeftinijim
+	.row.col-lg-12
+		.panel.panel-default
+			.panel-body
+				This is where search criteria goes
+	.container#adverts
+		- @adverts.each do |advert|
+			.col-lg-4
+				.panel.panel-default
+					.panel-body
+						.panel-header
+							%h3
+								%center 
+									= advert.title
+						%h4
+							= advert.description.truncate 25
+							/TODO Postaviti Profil sliku za oglas
+						.panel-side.pull-right
+							%h5
+								Kontakt:
+								= advert.phone_number
+							%h5
+								Lokacija:
+								= advert.location
+							%h5
+								Adresa:
+								= advert.address
+							%h6
+								= link_to "Pogledaj detaljnije..", advert, id: "detaljnije-#{advert.id}"
+= render 'shared/modals/subscribe_popup'
+ 

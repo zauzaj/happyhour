@@ -9,6 +9,7 @@ describe "Advert" do
 		active_advert.should respond_to(:comments)
 		active_advert.should respond_to(:user)
 		active_advert.should respond_to(:category)
+		active_advert.should respond_to(:settlement)
 	end
 
 	it "valid advert" do
