@@ -6,7 +6,7 @@
 		margin-left: 20%;
 		margin-right: 20%;
 		margin-top: 10px;
-		background-color: #C9C5C5;
+		background-color: #928B8B;
 		border: groove;
 		border-color: lavenderblush;
 		border-width: thick;
@@ -33,4 +33,9 @@
 	.preview-profile{
 		background-color: #C9C5C5;
 	}
+}
+
+.nav-pills > li > a{
+	color: white;
+	font-weight: bolder;
 }
