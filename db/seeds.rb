@@ -1,4 +1,6 @@
 require 'factory_girl'
+require File.expand_path('../insert_settlements.rb', __FILE__)
+
 
 Dir.glob(Rails.root.to_s + "/spec/factories/*") { |file| require file }
 
