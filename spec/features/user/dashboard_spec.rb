@@ -52,7 +52,7 @@ feature "User Dashboard" do
 			visit dashboard_path
 			click_link "All my adverts"
 
-			expect(page).to have_content("Niste postavili ni jedan oglas")			
+			expect(page).to have_content("Niste postavili nijedan oglas")			
 		end 
 		
 		scenario "should have five adverts" do

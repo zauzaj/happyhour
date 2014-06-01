@@ -6,6 +6,7 @@ HappyHour::Application.routes.draw do
 
   get "dashboards/index", to: "dashboards#index", as: "dashboard"
   
+  resources :subscribes, only: [:create]
   resources :adverts do 
     resources :comments, only: [:create]
   end

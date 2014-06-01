@@ -12,7 +12,7 @@ feature "User - Sign in" do
 		within '#login-form' do
 			fill_in "user_email", with: @user.email
 			fill_in "user_password", with: "password1"
-			click_button "Sign in"
+			click_button "Prijavi se"
 		end
 
 		expect(page).to have_content "Invalid email or password."
@@ -24,7 +24,7 @@ feature "User - Sign in" do
 		within '#login-form' do
 			fill_in "user_email", with: @user.email
 			fill_in "user_password", with: @user.password
-			click_button "Sign in"
+			click_button "Prijavi se"
 		end
 
 		expect(page).to have_content "Signed in successfully."
