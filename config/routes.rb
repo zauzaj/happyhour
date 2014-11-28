@@ -1,4 +1,4 @@
-HappyHour::Application.routes.draw do
+Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: "session/registrations" }
 
   get "dashboards/index", to: "dashboards#index", as: "dashboard"
