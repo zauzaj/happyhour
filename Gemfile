@@ -6,6 +6,8 @@ gem 'simple_form'
 gem 'carrierwave'
 gem "rmagick"
 
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0.beta4'
 
