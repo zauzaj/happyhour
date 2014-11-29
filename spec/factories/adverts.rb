@@ -11,7 +11,7 @@ FactoryGirl.define do
 		user
 		category 
 		settlement
-		ignore do 
+		transient do 
 			comments_count 5
 		end
 		after(:create) do |active_advert, evaluator|
@@ -22,6 +22,7 @@ FactoryGirl.define do
 	factory :inactive_advert, parent: :active_advert do
 		active false
 	end
+	
 	factory :uncommentable_advert, parent: :active_advert do
 		commentable false
 	end

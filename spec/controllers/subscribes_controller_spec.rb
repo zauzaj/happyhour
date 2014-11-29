@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SubscribesController do
 	let(:valid_attributes) { attributes_for(:subscribe) } 

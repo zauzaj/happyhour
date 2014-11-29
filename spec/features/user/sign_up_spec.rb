@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "User - Sign up" do
 	scenario "register with invalid data " do

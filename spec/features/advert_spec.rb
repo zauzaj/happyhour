@@ -1,6 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
+require Rails.root.join("spec/support/login_macros.rb")
 
 feature Advert do
+	include LoginMacros
+
 	let(:user) { create :user}
 	# let!(:advert) { create(:active_advert, user: user) }
 

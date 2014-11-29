@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Comment do
   it "saves anonimous instead of empty comment owner" do
