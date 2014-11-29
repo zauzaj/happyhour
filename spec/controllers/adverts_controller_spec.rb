@@ -101,14 +101,14 @@ describe AdvertsController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved advert as @advert" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Advert.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Advert).to receive(:save).and_return(false)
         post :create, {:advert => {  }}
         expect(assigns(:advert)).to be_a_new(Advert)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Advert.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Advert).to receive(:save).and_return(false)
         post :create, {:advert => {  }}
         expect(response).to render_template("new")
       end
@@ -144,7 +144,7 @@ describe AdvertsController do
       it "assigns the advert as @advert" do
         advert = Advert.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Advert.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Advert).to receive(:save).and_return(false)
         put :update, {:id => advert.to_param, :advert => {  }}
         expect(assigns(:advert)).to eq(advert)
       end
@@ -152,7 +152,7 @@ describe AdvertsController do
       it "re-renders the 'edit' template" do
         advert = Advert.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Advert.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Advert).to receive(:save).and_return(false)
         put :update, {:id => advert.to_param, :advert => {  }}
         expect(response).to render_template("edit")
       end
