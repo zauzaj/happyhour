@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SubscribesController do
 	let(:valid_attributes) { attributes_for(:subscribe) } 
@@ -12,7 +12,7 @@ describe SubscribesController do
 		context "successful subscripton" do
 			before(:each) do
 				post :create, { subscribe: valid_attributes, settlement: @settlements[0] }
-				@subscribe.stub(:save).and_return(true)
+				allow(@subscribe).to receive(:save).and_return(true)
 			end
 			it "should redirect to root_path" do
 				expect(response).to redirect_to(root_path)

@@ -5,7 +5,6 @@ FactoryGirl.define do
 	  sequence(:user_name){|n| "user#{n}"}
 	  password "password"
     sequence(:mobile_number_1){|n| "#{n}"*8}
-	  #email "user@hh.com"
 	  sequence(:email) { |n| "user#{n}@hh.com" }
 	end
 end

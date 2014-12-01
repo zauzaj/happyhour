@@ -1,6 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
+require Rails.root.join("spec/support/login_macros.rb")
 
 feature "User Dashboard" do 
+	include LoginMacros
+	
 	let(:user){create(:user)}
 
 	background do
