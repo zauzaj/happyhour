@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'newrelic_rpm'
 gem 'devise'
 gem "haml"
 gem 'simple_form'
