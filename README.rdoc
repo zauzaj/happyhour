@@ -1,28 +1,53 @@
-== README
+== HappyHour
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+HappyHour is application for drink promotion events.
 
-Things you may want to cover:
+== Setup
 
-* Ruby version
+=== Clone
 
-* System dependencies
+    git clone git@github.com:zauzaj/happyhour.git
 
-* Configuration
+=== System dependencies
+Ruby version 2.2 is preferred.
+Dependency for rmagick gem is imagemagick library.
 
-* Database creation
+=== Install gems
 
-* Database initialization
+    bundle install
 
-* How to run the test suite
+=== Setup config/secrets.yml
+  
+File config/secrets.yml holds sensitive data. Rename config/secrets.yml.example to config/secrets.yml and fill required data.
 
-* Services (job queues, cache servers, search engines, etc.)
+=== Setup database
 
-* Deployment instructions
+Rename the config/database.yml.example to config/database.yml.example and change username and password to match your local dababase credentials.
 
-* ...
+Then run database migrations:
+
+    bin/rake db:migrate
+
+== Run application
+    
+    bin/rails s
+
+  Application should be accessible on http://localhost:3100
+
+== Run specs
+
+    bin/rspec
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Deployment
+
+Login to Heroku:
+    heroku login
+
+Then push variables from config/secrets.yml to Heroku environment variables:
+
+    bin/rake heroku:secrets RAILS_ENV=production
+
+Push code:
+
+    git push heroku master

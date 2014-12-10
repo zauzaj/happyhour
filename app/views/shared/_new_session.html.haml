@@ -1,0 +1,16 @@
+= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { id: 'login-form', class: 'form-inline' }) do |f|
+  .form-group
+    = f.label "Email", class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.input :email, label: false, class: 'form-control', placeholder: "Email", :autofocus => true
+  .form-group
+    = f.label "Sifra", class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.input :password, label: false, class: 'form-control', placeholder: "Sifra"
+  / .form-group
+  /   = f.label "Zapamti me",class: "control-label col-xs-2"   
+  /   .col-xs-10
+  /     = f.input :remember_me, :as => :boolean, label: false if devise_mapping.rememberable?
+  .form-group
+    .col-s-offset-5.col-s-10
+      = f.button :submit, "Prijavi se", class: "btn btn-default"

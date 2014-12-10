@@ -11,17 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108163742) do
+ActiveRecord::Schema.define(version: 20140529213239) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "adverts", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "payment_method"
     t.boolean  "is_commentable"
+    t.string   "address"
+    t.string   "location"
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "category_id"
+    t.boolean  "active",         default: true
+    t.boolean  "commentable"
+    t.integer  "settlement_id"
   end
 
   add_index "adverts", ["category_id"], name: "index_adverts_on_category_id", using: :btree
@@ -33,15 +42,56 @@ ActiveRecord::Schema.define(version: 20140108163742) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "phone_number"
-    t.string   "email_adress"
-    t.string   "user_name"
-    t.string   "password"
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.string   "owner"
+    t.integer  "advert_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "settlements", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscribes", force: true do |t|
+    t.integer  "settlement_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "mobile_number_1"
+    t.string   "mobile_number_2"
+    t.string   "user_name"
+    t.string   "password"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
   end
 
 end

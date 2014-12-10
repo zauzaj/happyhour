@@ -1,0 +1,15 @@
+.navbar.navbar-inverse.navbar-static-top
+  .container
+    .navbar-brand
+      = link_to  "Happy Hour", root_path
+    %button.navbar-toggle{"data-target" => ".navHeaderCollapse", "data-toggle" => "collapse"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    .collapse.navbar-collapse.navHeaderCollapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = user_signed_in? ? (render "user/welcome_user_box") : (render "shared/new_session")
+
+
+

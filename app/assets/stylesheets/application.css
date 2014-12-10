@@ -11,3 +11,29 @@
  *= require_self
  *= require_tree .
  */
+
+body.dashboard{
+	background-image: url(/assets/dashboard.jpg);
+}
+
+
+.nav.nav-pills{
+	text-align: center;
+	border-bottom: 0px solid #D7D4EC;
+}
+.navbar-nav {
+	padding-top: 10px;
+	padding-bottom: 1%;
+}
+notice{
+font-family: serif;
+display: block;
+text-align: center;
+font-size: large;
+background-color: rgb(65, 89, 105);
+color: white;
+}
+.form-inline .control-label{
+	color: white;
+	vertical-align: middle;
+}

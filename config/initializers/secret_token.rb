@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-HappyHour::Application.config.secret_key_base = 'cb6f2a557f1788409e2d83dcede8990919630ee9352063ae6fcd8e567875a9476d31d2c1ce1fac8b26522eb309420d5f6018b1a135ef3f3301edb5f5b518523d'
+Rails.application.config.secret_key_base = Rails.application.secrets.secret_key_base

@@ -1,0 +1,18 @@
+#subscribe.modal.fade
+	.modal-dialog
+		.modal-content
+			.modal-header#subscribe-header
+				Prijava za obavestenja
+				#subscribe-description
+					Izaberite opstinu za koju zelite da vam stizu obavestenja jednom nedeljno
+			.modal-body
+				.subscribe-form
+					= form_for Subscribe.new , html: {class: "form-inline"} do |f|
+						= f.label "Email"
+						.form-group
+							= f.text_field :email, type: "email", class: "form-control", id: "inputEmail"
+						= f.label "Opstina"
+						.form-group
+							= f.select :settlement_id, @settlements.map{|m| [m[:name],m[:id]]}, prompt: "Sve opstine", class: "form-control", id: "selectSettlement"
+						.form-group
+							= submit_tag "Posalji prijavu", class: "btn btn-default"

@@ -1,0 +1,6 @@
+.new-comment-form
+	Ostavite svoj komentar :
+	= simple_form_for [@advert, Comment.new] do |f|
+		= f.input :owner, label: "Your name :"
+		= f.text_field :content, row: 4, label: "Comment :"
+		= f.submit "Post Comment"

@@ -1,0 +1,81 @@
+/= render 'user/welcome_user_box'
+.dashboard
+  %h3
+    = link_to "Back to home", root_path
+  %h3
+    %center
+      Welcome to your dashboard ....
+  .dashboard-panel
+    %ul.nav.nav-pills
+      %li.active
+        = link_to "Profile", "#profile", :data => {:toggle => 'tab'}
+      %li
+        = link_to "Add new advert", "#new_advert", :data => {:toggle => 'tab'}
+      %li
+        = link_to "All my adverts", "#all_adverts", :data => {:toggle => 'tab'}
+    %p
+    .tab-content
+      #profile.tab-pane.fade.in.active
+        = render 'shared/edit_profile'
+      #new_advert.tab-pane.fade
+        = simple_form_for Advert.new do |f|
+          .form-group
+            = f.label "Naslov", class: "control-label col-xs-2", required: true
+            .col-xs-10
+              = f.input :title, required: true, label: false
+          .form-group
+            = f.label "Opis", class: "control-label col-xs-2", required: true
+            .col-xs-10  
+              = f.input :description, as: :text, row: 10, label: false
+          .form-group
+            = f.label "Kategorija", class: "control-label col-xs-2", required: true
+            .col-xs-10 
+              = f.association :category, label: false
+          .form-group
+            = f.label "Nacin placanja", class: "control-label col-xs-2"
+            .col-xs-10
+              = f.input :payment_method, as: :check_boxes, collection: Advert::PAYMENT.map{|m| [m[:name],m[:id]]}, label: false
+          .form-group
+            = f.label "Dozvoli komenare", class: "control-label col-xs-2"
+            .col-xs-10
+              = f.input :commentable, as: :boolean, label: false
+          .form-group
+            = f.label "Adresa lokala", class: "control-label col-xs-2", required: true
+            .col-xs-10
+              = f.input :address, label: false
+          .form-group
+            = f.label "Lokacija", class: "control-label col-xs-2", required: true
+            .col-xs-10
+              = f.input :location, label: false
+          .form-group
+            = f.label "Kontakt telefon", class: "control-label col-xs-2"
+            .col-xs-10
+              = f.input :phone_number, label: false
+          .form-group
+            .col-xs-offset-2.col-xs-10
+              = f.submit "Postavi oglas"
+      #all_adverts.tab-pane.fade
+        - if @all_my_adverts.blank?
+          %h3
+            Niste postavili nijedan oglas 
+        - else
+          .container#my-adverts
+            - @all_my_adverts.each do |advert|
+              .col-lg-12
+                .panel.panel-default
+                  .panel-body
+                    .panel-header
+                      %h3
+                        %left 
+                          = advert.title
+                    .panel-content
+                      %h4
+                        = advert.description
+                      /TODO Postaviti Profil sliku za oglas
+                    
+                    .btn-group.pull-right
+                      %button.btn.btn-default.btn-small{:disabled => "disabled", :type => "button"} 
+                        = advert.created_at.to_date 
+                      = link_to "Pogledaj detaljnije", advert, id: "detaljnije-#{advert.id}", class: 'btn btn-small btn-default'
+= render 'shared/modals/preview_profile'
+

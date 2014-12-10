@@ -1,0 +1,29 @@
+#previewProfile.modal.fade
+	.modal-dialog
+		.modal-content
+			.preview-profile
+				#avatar
+					= image_tag current_user.image_url(:thumb), class: "img-thumbnail" if current_user.image?
+				.modal-body
+					.modal-preview-profile
+						.row 
+							.col-sm-4
+								%h5 Ime:
+								= current_user.first_name
+							.col-sm-4
+								%h5 Prezime:
+								= current_user.last_name
+							.col-sm-4
+								%h5 Nick
+								= current_user.user_name
+						.row
+							.col-sm-4
+								%h5 Email:
+								= current_user.email
+							.col-sm-4
+								%h5 Mobilni 1
+								= current_user.mobile_number_1
+							.col-sm-4
+								%h5 Mobilni 2
+								= current_user.mobile_number_2
+

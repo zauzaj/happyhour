@@ -1,0 +1,28 @@
+.container
+	.jumbotron
+		%center
+			%h1
+				= @advert.title
+			%h3#advert-description
+				= @advert.description
+			/ TODO MAIN IMAGE
+			/  GALERY
+		.panel-side.pull-right
+			%h5
+				Kontakt:
+				= @advert.phone_number
+			%h5
+				Lokacija:
+				= @advert.location
+			%h5
+				Adresa:
+				= @advert.address
+	.panel-panel-default#table-comments
+		.panel-heading
+			%h2
+				Komentari :
+		- unless @advert.commentable
+			Komentari nisu prikazani za ovaj oglas
+		- else		
+			= render @comments
+			= render "comments/new"

@@ -1,0 +1,19 @@
+!!!
+%html
+	%head
+		%title HappyHour
+		= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+		= javascript_include_tag "application", "data-turbolinks-track" => true
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js?ver=1.4.0"></script> 
+		= csrf_meta_tags
+	- body_class = params[:controller].singularize
+	%body{class: body_class}
+		= render 'shared/header'
+		%p
+			%notice
+				= notice
+		%p
+			%alert
+				= alert
+		= yield
+		= render 'shared/footer'
