@@ -1,0 +1,13 @@
+development: &development
+  adapter: postgresql
+  database: happyhour_development
+  username: test
+  password: test
+
+test:
+  <<: *development
+  database: happyhour_test
+
+production:
+  <<: *development
+  database: happyhour_production
