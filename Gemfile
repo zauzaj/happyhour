@@ -49,7 +49,7 @@ group :test, :development do
 end
 
 group :development do
-  gem "webconsole"
+  gem 'web-console', '~> 2.0'
   gem "spring"
   gem "binding_of_caller"
   gem 'letter_opener'
