@@ -9,11 +9,6 @@
 	- body_class = params[:controller].singularize
 	%body{class: body_class}
 		= render 'shared/header'
-		%p
-			%notice
-				= notice
-		%p
-			%alert
-				= alert
+		= flash_messages
 		= yield
 		= render 'shared/footer'
