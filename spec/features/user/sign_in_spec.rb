@@ -8,7 +8,7 @@ feature "User - Sign in" do
 	
 	scenario "invalid login user" do
 		visit root_path
-		
+
 		within '#login-form' do
 			fill_in "user_email", with: @user.email
 			fill_in "user_password", with: "password1"
