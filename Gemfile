@@ -10,7 +10,7 @@ gem "rmagick"
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.0.rc1'
+gem 'rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
@@ -49,8 +49,8 @@ group :test, :development do
 end
 
 group :development do
+  gem 'web-console', '~> 2.0'
   gem "spring"
-  gem "better_errors"
   gem "binding_of_caller"
   gem 'letter_opener'
 end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { registrations: "session/registrations" }
+  devise_for :users, :controllers => { registrations: "registrations" }
 
   get "dashboards/index", to: "dashboards#index", as: "dashboard"
   
