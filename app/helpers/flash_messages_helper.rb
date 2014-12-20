@@ -1,14 +1,14 @@
 module FlashMessagesHelper
   def flash_messages
-    if flash[:error].present?
+    if flash[:alert]
       html = <<-HTML
         <div class='alert alert-error'>
           <button type='button' class='close' data-dismiss='alert'>&times;</button>
-          #{flash[:error]}
+          #{flash[:alert]}
         </div>
       HTML
       html.html_safe
-    elsif flash[:notice].present?
+    elsif flash[:notice]
       html = <<-HTML
         <div class='alert alert-success'>
           <button type='button' class='close' data-dismiss='alert'>&times;</button>
