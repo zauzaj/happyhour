@@ -1,6 +1,4 @@
-class Session::RegistrationsController < Devise::RegistrationsController
-
-
+class RegistrationsController < Devise::RegistrationsController
 	def update
 		@user = User.find(current_user.id)
 		params[:user].delete(:current_password)
@@ -13,10 +11,6 @@ class Session::RegistrationsController < Devise::RegistrationsController
 
 	def after_sign_in_path_for(resource)
   	dashboard_path
-  end
-
-  def after_sign_out_path_for(resource)
-  	super
   end
 
 	private
